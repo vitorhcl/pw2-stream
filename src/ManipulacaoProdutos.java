@@ -1,5 +1,6 @@
 import java.util.*;
 import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class ManipulacaoProdutos {
 
@@ -41,7 +42,7 @@ public class ManipulacaoProdutos {
 		if(existe.isPresent())
 			System.out.println(existe.get().getNome() + " custa mais que R$ 50,00");
 		
-		List<Produto> bebidas = produtos.stream().filter(e -> e.getCategoria() == CategoriaEnum.BEBIDA).toList();
+		List<Produto> bebidas = produtos.stream().filter(e -> e.getCategoria() == CategoriaEnum.BEBIDA).collect(Collectors.toList());
 		
 		System.out.println("Bebidas:");
 		bebidas.forEach(e -> System.out.println(e.getNome()));
